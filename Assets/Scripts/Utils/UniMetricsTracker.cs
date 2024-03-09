@@ -11,7 +11,7 @@ namespace Utils
         private static extern void startTracking();
 
         [DllImport("__Internal")]
-        private static extern string stopTracking();
+        private static extern IntPtr stopTracking();
 
         public static event Action<string> OnCPUReceive;
         public static event Action<string> OnRAMReceive; 
@@ -36,8 +36,9 @@ namespace Utils
 
         private void StopTracking()
         {
-            var result = stopTracking();
-            
+            IntPtr ptr = stopTracking();
+            string result = Marshal.PtrToStringAnsi(ptr);
+
             OnCPUReceive?.Invoke(result);
             OnRAMReceive?.Invoke(result);
             OnGPUReceive?.Invoke(result);
