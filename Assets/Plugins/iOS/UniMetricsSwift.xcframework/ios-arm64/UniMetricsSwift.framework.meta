@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: bafc2404a175343ccb48722c0ca2974a
+guid: 1e30e63d6fd3c406a82e677817bb2723
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
   iconMap: {}
   executionOrder: {}
   defineConstraints: []
-  isPreloaded: 1
+  isPreloaded: 0
   isOverridable: 0
   isExplicitlyReferenced: 0
   validateReferences: 1
@@ -65,7 +65,7 @@ PluginImporter:
       enabled: 1
       settings:
         AddToEmbeddedBinaries: true
-        CPU: AnyCPU
+        CPU: ARM64
         CompileFlags: 
         FrameworkDependencies: 
   userData: 

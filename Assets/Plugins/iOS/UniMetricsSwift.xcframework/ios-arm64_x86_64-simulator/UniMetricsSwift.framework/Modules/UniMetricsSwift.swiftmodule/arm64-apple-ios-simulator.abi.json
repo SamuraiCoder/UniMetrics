@@ -1,0 +1,471 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "UniMetricsSwift",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MetricKit",
+        "printedName": "MetricKit",
+        "declKind": "Import",
+        "moduleName": "UniMetricsSwift"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PerformanceTracker",
+        "printedName": "PerformanceTracker",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PerformanceTracker",
+                "printedName": "UniMetricsSwift.PerformanceTracker",
+                "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker(cpy)shared",
+            "mangledName": "$s15UniMetricsSwift18PerformanceTrackerC6sharedACvpZ",
+            "moduleName": "UniMetricsSwift",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PerformanceTracker",
+                    "printedName": "UniMetricsSwift.PerformanceTracker",
+                    "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker(cm)shared",
+                "mangledName": "$s15UniMetricsSwift18PerformanceTrackerC6sharedACvgZ",
+                "moduleName": "UniMetricsSwift",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "startTracking",
+            "printedName": "startTracking()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker(im)startTracking",
+            "mangledName": "$s15UniMetricsSwift18PerformanceTrackerC13startTrackingyyF",
+            "moduleName": "UniMetricsSwift",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopTracking",
+            "printedName": "stopTracking()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker(im)stopTracking",
+            "mangledName": "$s15UniMetricsSwift18PerformanceTrackerC12stopTrackingSSyF",
+            "moduleName": "UniMetricsSwift",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "didReceive",
+            "printedName": "didReceive(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[MetricKit.MXMetricPayload]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MXMetricPayload",
+                    "printedName": "MetricKit.MXMetricPayload",
+                    "usr": "c:objc(cs)MXMetricPayload"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker(im)didReceiveMetricPayloads:",
+            "mangledName": "$s15UniMetricsSwift18PerformanceTrackerC10didReceiveyySaySo15MXMetricPayloadCGF",
+            "moduleName": "UniMetricsSwift",
+            "objc_name": "didReceiveMetricPayloads:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@UniMetricsSwift@objc(cs)PerformanceTracker",
+        "mangledName": "$s15UniMetricsSwift18PerformanceTrackerC",
+        "moduleName": "UniMetricsSwift",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "Array",
+      "offset": 610,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "Array",
+      "offset": 656,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "FloatLiteral",
+      "offset": 688,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1714,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 1846,
+      "length": 26,
+      "value": "\"Tracking wasn't started.\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "FloatLiteral",
+      "offset": 2100,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "FloatLiteral",
+      "offset": 2128,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2222,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2248,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2376,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2491,
+      "length": 3,
+      "value": "100"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 2653,
+      "length": 10,
+      "value": "\"cpuUsage\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 2694,
+      "length": 10,
+      "value": "\"ramUsage\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2724,
+      "length": 4,
+      "value": "1024"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2731,
+      "length": 4,
+      "value": "1024"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 2766,
+      "length": 10,
+      "value": "\"gpuUsage\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 2813,
+      "length": 9,
+      "value": "\"thermal\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "Array",
+      "offset": 3002,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 3143,
+      "length": 4,
+      "value": "\"{}\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "FloatLiteral",
+      "offset": 3815,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3934,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4075,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4199,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4444,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4735,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "FloatLiteral",
+      "offset": 4841,
+      "length": 5,
+      "value": "100.0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5215,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5352,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5590,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5744,
+      "length": 9,
+      "value": "\"Nominal\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5780,
+      "length": 6,
+      "value": "\"Fair\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5816,
+      "length": 9,
+      "value": "\"Serious\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5856,
+      "length": 10,
+      "value": "\"Critical\""
+    },
+    {
+      "filePath": "\/Users\/salonso\/Desktop\/UniMetrics\/Native\/UniMetricsSwift\/UniMetricsSwift\/PerformanceTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5899,
+      "length": 9,
+      "value": "\"Unknown\""
+    }
+  ]
+}

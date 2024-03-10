@@ -1,0 +1,4 @@
+framework module UniMetricsSwift {
+  header "UniMetricsSwift-Swift.h"
+  requires objc
+}
