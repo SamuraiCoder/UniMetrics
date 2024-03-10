@@ -1,10 +1,20 @@
 #if UNITY_IOS
 using System;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Utils
 {
+    [Serializable]
+    public class UniMetricsData 
+    {
+        public double cpuUsage; 
+        public ulong ramUsage; // Plugin returns in MB
+        public int gpuUsage;
+        public string thermal;
+    }
+    
     public class UniMetricsTracker : MonoBehaviour
     {
         [DllImport("__Internal")]
@@ -15,7 +25,8 @@ namespace Utils
 
         public static event Action<string> OnCPUReceive;
         public static event Action<string> OnRAMReceive; 
-        public static event Action<string> OnGPUReceive; 
+        public static event Action<string> OnGPUReceive;
+        public static event Action<string> OnThermalsReceive; 
 
         private void Awake()
         {
@@ -37,11 +48,14 @@ namespace Utils
         private void StopTracking()
         {
             IntPtr ptr = stopTracking();
-            string result = Marshal.PtrToStringAnsi(ptr);
+            string result = Marshal.PtrToStringUTF8(ptr);
 
-            OnCPUReceive?.Invoke(result);
-            OnRAMReceive?.Invoke(result);
-            OnGPUReceive?.Invoke(result);
+            UniMetricsData data = JsonUtility.FromJson<UniMetricsData>(result);
+
+            OnCPUReceive?.Invoke(data.cpuUsage.ToString(CultureInfo.InvariantCulture));
+            OnRAMReceive?.Invoke(data.ramUsage.ToString());
+            OnGPUReceive?.Invoke(data.gpuUsage.ToString());
+            OnThermalsReceive?.Invoke(data.thermal);
         }
     }
 }

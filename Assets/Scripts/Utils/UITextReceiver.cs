@@ -10,10 +10,10 @@ namespace Utils
         {
             CPU,
             RAM,
-            GPU
+            GPU,
+            THERMALS
         }
-
-
+        
         [SerializeField] private MetricType metricType;
         [SerializeField] private TextMeshProUGUI label;
 
@@ -36,6 +36,11 @@ namespace Utils
                     UniMetricsTracker.OnGPUReceive += OnMetricReceived;
                     break;
                 }
+                case MetricType.THERMALS:
+                {
+                    UniMetricsTracker.OnThermalsReceive += OnMetricReceived;
+                    break;
+                }
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -44,8 +49,9 @@ namespace Utils
         private void OnDestroy()
         {
             UniMetricsTracker.OnCPUReceive -= OnMetricReceived;
-            UniMetricsTracker.OnRAMReceive += OnMetricReceived;
-            UniMetricsTracker.OnGPUReceive += OnMetricReceived;
+            UniMetricsTracker.OnRAMReceive -= OnMetricReceived;
+            UniMetricsTracker.OnGPUReceive -= OnMetricReceived;
+            UniMetricsTracker.OnThermalsReceive -= OnMetricReceived;
         }
 
         private void OnMetricReceived(string receivedStr)
