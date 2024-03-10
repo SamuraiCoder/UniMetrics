@@ -1,6 +1,8 @@
 #if UNITY_IOS
 using System;
+#if UNITY_IOS && !UNITY_EDITOR
 using System.Globalization;
+#endif
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -42,11 +44,16 @@ namespace Utils
 
         private void StartTracking()
         {
+#if UNITY_IOS && !UNITY_EDITOR
             startTracking();
+#else
+            Debug.LogWarning("UniMetrics does not work in Editor.");
+#endif
         }
 
         private void StopTracking()
         {
+#if UNITY_IOS && !UNITY_EDITOR
             IntPtr ptr = stopTracking();
             string result = Marshal.PtrToStringUTF8(ptr);
 
@@ -56,6 +63,15 @@ namespace Utils
             OnRAMReceive?.Invoke(data.ramUsage.ToString());
             OnGPUReceive?.Invoke(data.gpuUsage.ToString());
             OnThermalsReceive?.Invoke(data.thermal);
+#else
+            Debug.LogWarning("UniMetrics does not work in Editor.");
+            
+            //Send dummy data to the UI
+            OnCPUReceive?.Invoke("6.2");
+            OnRAMReceive?.Invoke("300");
+            OnGPUReceive?.Invoke("18");
+            OnThermalsReceive?.Invoke("Nominal");
+#endif
         }
     }
 }
