@@ -7,26 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E57991A2B9C7BFF0068BC27 /* UniMetricsSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5799112B9C7BFF0068BC27 /* UniMetricsSwift.framework */; };
-		4E57991F2B9C7BFF0068BC27 /* UniMetricsSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57991E2B9C7BFF0068BC27 /* UniMetricsSwiftTests.swift */; };
+		4E1590262B9DC91900287022 /* MetricKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1590252B9DC91900287022 /* MetricKit.framework */; };
 		4E57992A2B9C7E9B0068BC27 /* PerformanceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5799292B9C7E9B0068BC27 /* PerformanceTracker.swift */; };
 		4E57992C2B9C7EEF0068BC27 /* PerformanceTrackerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E57992B2B9C7EEF0068BC27 /* PerformanceTrackerBridge.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4E57991B2B9C7BFF0068BC27 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4E5799082B9C7BFF0068BC27 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4E5799102B9C7BFF0068BC27;
-			remoteInfo = UniMetricsSwift;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		4E1590252B9DC91900287022 /* MetricKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetricKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/MetricKit.framework; sourceTree = DEVELOPER_DIR; };
 		4E5799112B9C7BFF0068BC27 /* UniMetricsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UniMetricsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E5799192B9C7BFF0068BC27 /* UniMetricsSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniMetricsSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E57991E2B9C7BFF0068BC27 /* UniMetricsSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniMetricsSwiftTests.swift; sourceTree = "<group>"; };
 		4E5799292B9C7E9B0068BC27 /* PerformanceTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTracker.swift; sourceTree = "<group>"; };
 		4E57992B2B9C7EEF0068BC27 /* PerformanceTrackerBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceTrackerBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -36,26 +24,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4E5799162B9C7BFF0068BC27 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E57991A2B9C7BFF0068BC27 /* UniMetricsSwift.framework in Frameworks */,
+				4E1590262B9DC91900287022 /* MetricKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E1590242B9DC91900287022 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E1590252B9DC91900287022 /* MetricKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E5799072B9C7BFF0068BC27 = {
 			isa = PBXGroup;
 			children = (
 				4E5799132B9C7BFF0068BC27 /* UniMetricsSwift */,
-				4E57991D2B9C7BFF0068BC27 /* UniMetricsSwiftTests */,
 				4E5799122B9C7BFF0068BC27 /* Products */,
+				4E1590242B9DC91900287022 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				4E5799112B9C7BFF0068BC27 /* UniMetricsSwift.framework */,
-				4E5799192B9C7BFF0068BC27 /* UniMetricsSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,14 +63,6 @@
 				4E57992B2B9C7EEF0068BC27 /* PerformanceTrackerBridge.m */,
 			);
 			path = UniMetricsSwift;
-			sourceTree = "<group>";
-		};
-		4E57991D2B9C7BFF0068BC27 /* UniMetricsSwiftTests */ = {
-			isa = PBXGroup;
-			children = (
-				4E57991E2B9C7BFF0068BC27 /* UniMetricsSwiftTests.swift */,
-			);
-			path = UniMetricsSwiftTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,24 +96,6 @@
 			productReference = 4E5799112B9C7BFF0068BC27 /* UniMetricsSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4E5799182B9C7BFF0068BC27 /* UniMetricsSwiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4E5799262B9C7BFF0068BC27 /* Build configuration list for PBXNativeTarget "UniMetricsSwiftTests" */;
-			buildPhases = (
-				4E5799152B9C7BFF0068BC27 /* Sources */,
-				4E5799162B9C7BFF0068BC27 /* Frameworks */,
-				4E5799172B9C7BFF0068BC27 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4E57991C2B9C7BFF0068BC27 /* PBXTargetDependency */,
-			);
-			name = UniMetricsSwiftTests;
-			productName = UniMetricsSwiftTests;
-			productReference = 4E5799192B9C7BFF0068BC27 /* UniMetricsSwiftTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -147,9 +109,6 @@
 					4E5799102B9C7BFF0068BC27 = {
 						CreatedOnToolsVersion = 14.3.1;
 						LastSwiftMigration = 1430;
-					};
-					4E5799182B9C7BFF0068BC27 = {
-						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
@@ -167,20 +126,12 @@
 			projectRoot = "";
 			targets = (
 				4E5799102B9C7BFF0068BC27 /* UniMetricsSwift */,
-				4E5799182B9C7BFF0068BC27 /* UniMetricsSwiftTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4E57990F2B9C7BFF0068BC27 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4E5799172B9C7BFF0068BC27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -199,23 +150,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4E5799152B9C7BFF0068BC27 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E57991F2B9C7BFF0068BC27 /* UniMetricsSwiftTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4E57991C2B9C7BFF0068BC27 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4E5799102B9C7BFF0068BC27 /* UniMetricsSwift */;
-			targetProxy = 4E57991B2B9C7BFF0068BC27 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4E5799212B9C7BFF0068BC27 /* Debug */ = {
@@ -350,6 +285,7 @@
 		4E5799242B9C7BFF0068BC27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -384,6 +320,7 @@
 		4E5799252B9C7BFF0068BC27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -414,40 +351,6 @@
 			};
 			name = Release;
 		};
-		4E5799272B9C7BFF0068BC27 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YD255W4K3U;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samalonso.unimetrics.UniMetricsSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4E5799282B9C7BFF0068BC27 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YD255W4K3U;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samalonso.unimetrics.UniMetricsSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -465,15 +368,6 @@
 			buildConfigurations = (
 				4E5799242B9C7BFF0068BC27 /* Debug */,
 				4E5799252B9C7BFF0068BC27 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4E5799262B9C7BFF0068BC27 /* Build configuration list for PBXNativeTarget "UniMetricsSwiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4E5799272B9C7BFF0068BC27 /* Debug */,
-				4E5799282B9C7BFF0068BC27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

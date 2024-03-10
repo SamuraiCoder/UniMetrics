@@ -6,20 +6,45 @@
 //
 
 import Foundation
+import MetricKit
 
-@objc public class PerformanceTracker: NSObject
+@objc public class PerformanceTracker: NSObject, MXMetricManagerSubscriber
 {
     @objc public static let shared = PerformanceTracker()
-
-    private var timer: Timer?
+    
+    private var lastCumulativeGPUTime: TimeInterval?
+    private var trackingStartTime: Date?
+    private var currentThermalState: ProcessInfo.ThermalState = ProcessInfo.processInfo.thermalState
+	private var timer: Timer?
     private var cpuUsageValues: [Double] = []
     private var ramUsageValues: [UInt64] = []
 	private var timerTrackers = 1.0
+
+	override init()
+	{
+        super.init()
+        // Subscribe to MetricKit's metric manager
+        MXMetricManager.shared.add(self)
+        // Subscribe to Thermal states changes
+        NotificationCenter.default.addObserver(self, selector: #selector(thermalStateDidChange), name: ProcessInfo.thermalStateDidChangeNotification, object: nil)
+    }
     
-    private override init() {}
+	@objc private func thermalStateDidChange(notification: NSNotification)
+	{
+		currentThermalState = ProcessInfo.processInfo.thermalState
+    }
     
+    // Unsubscribe from notifiers
+	deinit
+	{
+		MXMetricManager.shared.remove(self)
+        NotificationCenter.default.removeObserver(self)
+    }
+        
     @objc public func startTracking()
     {
+        trackingStartTime = Date()
+
         // Reset tracking data
         cpuUsageValues.removeAll()
         ramUsageValues.removeAll()
@@ -30,14 +55,41 @@ import Foundation
     
     @objc public func stopTracking() -> String
     {
+        guard let startTime = trackingStartTime else { return "Tracking wasn't started." }
+        
         // Invalidate the timer to stop further tracking
         timer?.invalidate()
         timer = nil
+
+		// Get the averages and construct the returning JSON
+        let averageCPUUsage = cpuUsageValues.isEmpty ? 0.0 : cpuUsageValues.reduce(0.0, +) / Double(cpuUsageValues.count)
+        let averageRAMUsage = ramUsageValues.isEmpty ? 0 : ramUsageValues.reduce(0, +) / UInt64(ramUsageValues.count)
+		
+		let appRuntime = Date().timeIntervalSince(startTime)
+		
+		var utilizationPercentage = 0
+        if let gpuTime = lastCumulativeGPUTime
+        {
+			utilizationPercentage = Int((gpuTime / appRuntime) * 100)
+        }
         
-        let averageCPUUsage = cpuUsageValues.reduce(0.0, +) / Double(cpuUsageValues.count)
-        let averageRAMUsage = ramUsageValues.reduce(0, +) / UInt64(ramUsageValues.count)
+		let thermalStateDescription = describe(thermalState: currentThermalState)
+
         
-        return "CPU: \(averageCPUUsage)% RAM: \(averageRAMUsage / 1024 / 1024) MB"
+        let dataDict: [String: Any] = [
+            "cpuUsage": averageCPUUsage,
+            "ramUsage": averageRAMUsage / 1024 / 1024, // Convert to MB
+            "gpuUsage": utilizationPercentage,
+            "thermal" : thermalStateDescription
+        ]
+
+        // Serialize the dictionary to a JSON string
+        if let jsonData = try? JSONSerialization.data(withJSONObject: dataDict, options: []),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            return jsonString
+        } else {
+            return "{}" //Empty if serialisation fails
+        }
     }
     
     @objc private func sampleUsage()
@@ -49,7 +101,16 @@ import Foundation
         ramUsageValues.append(currentRAMUsage)
     }
     
-
+    public func didReceive(_ payloads: [MXMetricPayload])
+    {
+        guard let payload = payloads.first else { return }
+        
+        if let gpuMetrics = payload.gpuMetrics
+        {
+            lastCumulativeGPUTime = gpuMetrics.cumulativeGPUTime.value
+        }
+    }
+    
 	//From stackoverflow
 	func cpuUsage() -> Double
 	{
@@ -102,5 +163,22 @@ import Foundation
         } else {
             return 0
         }
+    }
+    
+	private func describe(thermalState: ProcessInfo.ThermalState) -> String
+	{
+		switch thermalState
+		{
+			case .nominal:
+				return "Nominal"
+			case .fair:
+				return "Fair"
+			case .serious:
+				return "Serious"
+			case .critical:
+				return "Critical"
+			@unknown default:
+				return "Unknown"
+		}
     }
 }
