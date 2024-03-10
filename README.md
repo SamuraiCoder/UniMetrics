@@ -36,8 +36,12 @@ Cloning directly gives access to the Unity project.
 
 - GPU tracking info it's an obscure and hard part of the API to be retrieved. Apple does not offer a solution for it and there are many non-working things out there so I prefer to use `MetricKit` to retrieve certain data but this is not intended to be working as I expect here. Also, retriving thermals can give partial information about how the device is behaving. 
 
-# Works:
-
+# Demo:
+(Native iphone 15)
 ![IMG_4344](https://github.com/SamuraiCoder/UniMetrics/assets/4901895/c126b1dc-d44b-48b4-b2cb-a35b874b9627)
+
+(Simulator)
+![image](https://github.com/SamuraiCoder/UniMetrics/assets/4901895/6db1c958-ee0d-4e6f-ab26-26d8216fcd92)
+
 
 
